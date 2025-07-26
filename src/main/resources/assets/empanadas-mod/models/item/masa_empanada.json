@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0": "empanadas-mod:item/empanada"
+        "layer0": "empanadas-mod:item/masa_empanada"
     }
 }

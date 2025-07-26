@@ -1,6 +1,6 @@
 {
     "model": {
         "type": "minecraft:model",
-        "model": "empanadas-mod:item/empanada"
+        "model": "empanadas-mod:item/empanada_horneada"
     }
 }
