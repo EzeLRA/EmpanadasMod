@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:egg",
+    "minecraft:wheat",
+    "minecraft:potion"
+  ],
+  "result": {
+    "count": 1,
+    "id": "empanadas-mod:tapa_empanada"
+  }
+}
