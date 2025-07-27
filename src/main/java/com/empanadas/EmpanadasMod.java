@@ -1,5 +1,6 @@
 package com.empanadas;
 
+import com.empanadas.Items.ModItemGrops;
 import com.empanadas.Items.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -19,6 +20,7 @@ public class EmpanadasMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+		ModItemGrops.registerItemGroups();
 		ModItems.initialize();
 		//LOGGER.info("Hello Fabric world!");
 	}

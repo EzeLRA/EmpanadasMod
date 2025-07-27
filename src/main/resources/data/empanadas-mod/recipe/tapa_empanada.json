@@ -1,0 +1,23 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "category" : "food",
+  "key": {
+    "1": {
+      "item": "minecraft:potion"
+    },
+    "2": {
+      "item": "minecraft:wheat"
+    },
+    "3": {
+      "item": "minecraft:egg"
+    }
+  },
+  "pattern": [
+    " 1",
+    "32"
+  ],
+  "result": {
+    "id" : "empanadas-mod:tapa_empanada",
+    "count": 1
+  }
+}

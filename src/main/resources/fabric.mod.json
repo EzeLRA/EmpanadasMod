@@ -18,16 +18,12 @@
 		"main": [
 			"com.empanadas.EmpanadasMod"
 		],
-		"client": [
-			"com.empanadas.EmpanadasModClient"
+		"fabric-datagen": [
+			"com.empanadas.EmpanadasModDataGenerator"
 		]
 	},
 	"mixins": [
-		"empanadas-mod.mixins.json",
-		{
-			"config": "empanadas-mod.client.mixins.json",
-			"environment": "client"
-		}
+		"empanadas-mod.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",

@@ -1,5 +1,6 @@
 {
-    "item.empanadas-mod.masa_empanada" : "Masa para empanadas",
+    "itemgroup.empanadas-mod.empanadas_items" : "EmpanadasMod",
+    "item.empanadas-mod.tapa_empanada" : "Tapa de empanada",
     "item.empanadas-mod.empanada_cruda" : "Empanada Cruda",
     "item.empanadas-mod.empanada_horneada" : "Empanada Horneada",
     "item.empanadas-mod.empanada_frita" : "Empanada Frita"

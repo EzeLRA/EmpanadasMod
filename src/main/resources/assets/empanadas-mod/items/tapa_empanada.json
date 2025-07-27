@@ -1,6 +1,6 @@
 {
     "model": {
         "type": "minecraft:model",
-        "model": "empanadas-mod:item/masa_empanada"
+        "model": "empanadas-mod:item/tapa_empanada"
     }
 }
