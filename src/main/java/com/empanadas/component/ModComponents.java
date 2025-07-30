@@ -1,4 +1,4 @@
-package com.empanadas.components;
+package com.empanadas.component;
 
 import com.empanadas.EmpanadasMod;
 import com.mojang.serialization.Codec;
@@ -7,16 +7,14 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import java.util.List;
-
 public class ModComponents {
-    //Revisar
+
     public static final ComponentType<String> EMPANADA_COMPONENT = Registry.register(
             Registries.DATA_COMPONENT_TYPE,
-            Identifier.of(EmpanadasMod.MOD_ID, "Sin ingredientes"),
-            ComponentType.<Integer>builder().codec(null).build()
+            Identifier.of(EmpanadasMod.MOD_ID, "empanada_component"),
+            ComponentType.<String>builder().codec(Codec.STRING).build()
     );
-    protected static void initialize() {
-
+    public static void initialize() {
+        //El ComponentType "EMPANADA_COMPONENT" implementara la funcionalidad de guardar y escribir los ingredientes que se usen en el crafteo de la empanada
     }
 }

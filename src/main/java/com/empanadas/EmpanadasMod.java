@@ -2,6 +2,7 @@ package com.empanadas;
 
 import com.empanadas.Items.ModItemGrops;
 import com.empanadas.Items.ModItems;
+import com.empanadas.component.ModComponents;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -22,7 +23,7 @@ public class EmpanadasMod implements ModInitializer {
 		// Proceed with mild caution.
 		ModItemGrops.registerItemGroups();
 		ModItems.initialize();
-		//LOGGER.info("Hello Fabric world!");
+		ModComponents.initialize();
 	}
 
 }
