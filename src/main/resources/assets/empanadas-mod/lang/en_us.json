@@ -3,5 +3,7 @@
     "item.empanadas-mod.tapa_empanada" : "Tapa de empanada",
     "item.empanadas-mod.empanada_cruda" : "Empanada Cruda",
     "item.empanadas-mod.empanada_horneada" : "Empanada Horneada",
-    "item.empanadas-mod.empanada_frita" : "Empanada Frita"
+    "item.empanadas-mod.empanada_frita" : "Empanada Frita",
+    "itemTooltip.empanadas-mod.empanadaitem" : "Sin ingredientes",
+    "itemTooltip.empanadas-mod.empanadaitem_conIngredientes" : "Ingredientes"
 }

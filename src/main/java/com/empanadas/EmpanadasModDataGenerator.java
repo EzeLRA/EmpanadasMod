@@ -9,5 +9,6 @@ public class EmpanadasModDataGenerator implements DataGeneratorEntrypoint {
 		//Paquete principal para agregar los proveedores
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 		pack.addProvider(EmpanadasModRecipeProvider::new);
+		pack.addProvider(EmpanadasModItemTagProvider::new);
 	}
 }
