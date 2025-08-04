@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "empanadas-mod:tapa_empanada",
+    "#minecraft:axes",
+    "#empanadas-mod:comestibles",
+    "#c:foods/vegetable"
+  ],
+  "result": {
+    "count": 1,
+    "id": "empanadas-mod:empanada_cruda"
+  }
+}

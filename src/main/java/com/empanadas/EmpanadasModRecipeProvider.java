@@ -35,8 +35,8 @@ public class EmpanadasModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.WHEAT),conditionsFromItem(Items.WHEAT))
                         .criterion(hasItem(Items.POTION),conditionsFromItem(Items.POTION))
                         .offerTo(exporter);
-                //Receta para Empanada cruda(completar)
-                createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA).input(ModItems.TAPA_EMPANADA).input(ConventionalItemTags.COOKED_MEAT_FOODS).input(ConventionalItemTags.COOKED_FISH_FOODS).input(ConventionalItemTags.VEGETABLE_FOODS)
+                //Recetas para Empanada cruda
+                createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA).input(ModItems.TAPA_EMPANADA).input(ItemTags.AXES).input(EmpanadasModItemTagProvider.COMESTIBLES).input(ConventionalItemTags.VEGETABLE_FOODS)
                         .criterion(hasItem(ModItems.TAPA_EMPANADA),conditionsFromItem(ModItems.TAPA_EMPANADA))
                         .offerTo(exporter);
             }

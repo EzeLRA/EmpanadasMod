@@ -2,22 +2,24 @@ package com.empanadas;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
 public class EmpanadasModItemTagProvider extends FabricTagProvider<Item> {
-    //public static final TagKey<Item> COMESTIBLES = TagKey.of()
+    public static final TagKey<Item> COMESTIBLES = TagKey.of(RegistryKeys.ITEM, Identifier.of(EmpanadasMod.MOD_ID,"comestibles"));
     public EmpanadasModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, RegistryKeys.ITEM, registriesFuture);
     }
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-
+        getOrCreateTagBuilder(COMESTIBLES).forceAddTags(ConventionalItemTags.COOKED_FISH_FOODS,ConventionalItemTags.COOKED_MEAT_FOODS).setReplace(true);
     }
 }

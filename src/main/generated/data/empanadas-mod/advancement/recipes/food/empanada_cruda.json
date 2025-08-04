@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tapa_empanada": {
+      "conditions": {
+        "items": [
+          {
+            "items": "empanadas-mod:tapa_empanada"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "empanadas-mod:empanada_cruda"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tapa_empanada"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "empanadas-mod:empanada_cruda"
+    ]
+  }
+}
