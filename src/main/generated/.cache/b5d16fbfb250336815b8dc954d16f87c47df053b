@@ -1,5 +1,9 @@
 // 1.21.4	-999999999-01-01T00:00:00	Empanadas Mod/FabricDocsReferenceRecipeProvider
-b7eef76bc09229c10dbda84b705b35d79258c505 data/empanadas-mod/advancement/recipes/food/empanada_cruda.json
+8be3a4df78047ab66c684da5f0effa3e83877dcc data/empanadas-mod/advancement/recipes/food/empanada_cruda_compuesta1.json
+fc8cae20e0c45f4b874a480eb001484b2475ac30 data/empanadas-mod/advancement/recipes/food/empanada_cruda_compuesta2.json
+645a79195f0324a5804d72c624d29e6fb6c4f553 data/empanadas-mod/advancement/recipes/food/empanada_cruda_simple.json
 5652bd475938b5903e2a7e67cf9dd81e5ea912cc data/empanadas-mod/advancement/recipes/food/tapa_empanada.json
-476c2f43dcab9fd5a0c0e1c7a0dc76674914d218 data/empanadas-mod/recipe/empanada_cruda.json
+476c2f43dcab9fd5a0c0e1c7a0dc76674914d218 data/empanadas-mod/recipe/empanada_cruda_compuesta1.json
+82f5512efcd6f8e05498ee2d19b81dbaeedd1a0e data/empanadas-mod/recipe/empanada_cruda_compuesta2.json
+8048d5c25f272e8dcee10789a8a45d0cb7052d05 data/empanadas-mod/recipe/empanada_cruda_simple.json
 be01d7fb10b0cf22c99f34ea8d1e95dee02656c8 data/empanadas-mod/recipe/tapa_empanada.json

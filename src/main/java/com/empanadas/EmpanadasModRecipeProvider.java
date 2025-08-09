@@ -17,6 +17,7 @@ import net.minecraft.registry.tag.ItemTags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.util.Identifier;
 
 public class EmpanadasModRecipeProvider extends FabricRecipeProvider {
     public EmpanadasModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
@@ -38,7 +39,13 @@ public class EmpanadasModRecipeProvider extends FabricRecipeProvider {
                 //Recetas para Empanada cruda
                 createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA).input(ModItems.TAPA_EMPANADA).input(ItemTags.AXES).input(EmpanadasModItemTagProvider.COMESTIBLES).input(ConventionalItemTags.VEGETABLE_FOODS)
                         .criterion(hasItem(ModItems.TAPA_EMPANADA),conditionsFromItem(ModItems.TAPA_EMPANADA))
-                        .offerTo(exporter);
+                        .offerTo(exporter,"empanada_cruda_compuesta1");
+                createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA).input(ModItems.TAPA_EMPANADA).input(ItemTags.AXES).input(ConventionalItemTags.VEGETABLE_FOODS)
+                        .criterion(hasItem(ModItems.TAPA_EMPANADA),conditionsFromItem(ModItems.TAPA_EMPANADA))
+                        .offerTo(exporter,"empanada_cruda_compuesta2");
+                createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA).input(ModItems.TAPA_EMPANADA)
+                        .criterion(hasItem(ModItems.TAPA_EMPANADA),conditionsFromItem(ModItems.TAPA_EMPANADA))
+                        .offerTo(exporter,"empanada_cruda_simple");
             }
         };
     }

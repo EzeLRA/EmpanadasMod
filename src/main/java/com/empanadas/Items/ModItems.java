@@ -17,7 +17,7 @@ import java.util.function.Function;
 
 public class ModItems {
     // Caracteristicas de la empanada (Settings)
-    public static final FoodComponent EMPANADA_FOOD_COMPONENT = new FoodComponent.Builder().nutrition(5).build();
+    public static final FoodComponent EMPANADA_FOOD_COMPONENT = new FoodComponent.Builder().nutrition(5).saturationModifier(0.25f).build();
     // Instancias Items (Empanadas)
     public static final Item TAPA_EMPANADA = register("tapa_empanada", Item::new, new Item.Settings() );
     public static final Item EMPANADA_CRUDA = register("empanada_cruda",EmpanadaItem::new, new Item.Settings());
