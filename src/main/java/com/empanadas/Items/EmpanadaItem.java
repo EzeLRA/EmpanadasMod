@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipData;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.recipe.Recipe;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
@@ -47,51 +48,29 @@ public class EmpanadaItem extends Item {
         }
     }
 
-    // Método para agregar ingredientes
-    public static void addIngredient(ItemStack stack, RegistryEntry<Item> ingredientEntry) {
-        if (stack.getItem() instanceof EmpanadaItem) {
-            // Obtener el lore existente o crear uno nuevo
-            LoreComponent loreComponent = stack.getOrDefault(DataComponentTypes.LORE,
-                    new LoreComponent(new ArrayList<>()));
-
-            List<Text> loreLines = new ArrayList<>(loreComponent.lines());
-
-            // Crear texto para el nuevo ingrediente
-            Text ingredientText = Text.literal(" • ").append(ingredientEntry.value().getName())
-                    .formatted(Formatting.DARK_GRAY);
-
-            if (!loreLines.contains(ingredientText)) {
-                // Añadir encabezado si es el primer ingrediente
-                if (loreLines.isEmpty()) {
-                    loreLines.add(Text.translatable("tooltip.empanadas.ingredients")
-                            .formatted(Formatting.GRAY));
-                }
-
-                loreLines.add(ingredientText);
-
-                // Actualizar el componente LORE correctamente
-                stack.set(DataComponentTypes.LORE, new LoreComponent(loreLines));
-            }
-        }
-    }
-
-    // Método alternativo que acepta Item directamente
-    public static void addIngredient(ItemStack stack, Item ingredient) {
-        addIngredient(stack, Registries.ITEM.getEntry(ingredient));
-    }
-
-    // Método para registrar ingredientes al craftear
-    public static void registerCraftingIngredients(ItemStack empanadaStack, Collection<ItemStack> inputs) {
-        for (ItemStack input : inputs) {
-            if (!input.isEmpty()) {
-                addIngredient(empanadaStack, input.getItem());
-            }
-        }
-    }
 
     @Override
     public void onCraftByPlayer(ItemStack stack, World world, PlayerEntity player) {
+        // Llamar a la implementación original primero
         super.onCraftByPlayer(stack, world, player);
-        // La lógica de ingredientes ahora se maneja externamente
+
+        if (!world.isClient) {
+
+
+            /*
+            // Lógica solo en el servidor
+            player.sendMessage(Text.literal("¡Has crafteado " + stack.getName().getString() + "!"), false);
+
+            // Registrar en logs del servidor
+            world.getServer().getPlayerManager().getPlayerList().forEach(p ->
+                    p.sendMessage(Text.literal(player.getName().getString() +
+                            " ha crafteado " + stack.getCount() + "x " +
+                            stack.getName().getString()), true)
+            );
+
+             */
+        }
     }
+
+
 }
