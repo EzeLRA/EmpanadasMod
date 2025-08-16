@@ -3,7 +3,8 @@
   "package": "com.empanadas.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ExampleMixin"
+    "ExampleMixin",
+    "RecipeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 300,
+  "experience": 0.1,
+  "group": "empanada_horneada",
+  "ingredient": "empanadas-mod:empanada_cruda",
+  "result": {
+    "id": "empanadas-mod:empanada_horneada"
+  }
+}

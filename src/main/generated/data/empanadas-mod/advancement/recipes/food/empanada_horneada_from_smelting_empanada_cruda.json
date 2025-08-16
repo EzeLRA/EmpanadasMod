@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_empanada_cruda": {
+      "conditions": {
+        "items": [
+          {
+            "items": "empanadas-mod:empanada_cruda"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:empanada_horneada_from_smelting_empanada_cruda"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_empanada_cruda"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:empanada_horneada_from_smelting_empanada_cruda"
+    ]
+  }
+}

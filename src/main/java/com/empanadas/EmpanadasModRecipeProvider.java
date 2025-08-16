@@ -46,6 +46,15 @@ public class EmpanadasModRecipeProvider extends FabricRecipeProvider {
                 createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA).input(ModItems.TAPA_EMPANADA)
                         .criterion(hasItem(ModItems.TAPA_EMPANADA),conditionsFromItem(ModItems.TAPA_EMPANADA))
                         .offerTo(exporter,"empanada_cruda_simple");
+                //Receta para Empanada horneada
+                offerSmelting(
+                        List.of(ModItems.EMPANADA_CRUDA),
+                        RecipeCategory.FOOD,
+                        ModItems.EMPANADA_HORNEADA,
+                        0.1f,
+                        300,
+                        "empanada_horneada"
+                );
             }
         };
     }

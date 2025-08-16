@@ -48,7 +48,7 @@ public class EmpanadaItem extends Item {
         }
     }
 
-
+    /*
     @Override
     public void onCraftByPlayer(ItemStack stack, World world, PlayerEntity player) {
         // Llamar a la implementación original primero
@@ -57,7 +57,7 @@ public class EmpanadaItem extends Item {
         if (!world.isClient) {
 
 
-            /*
+
             // Lógica solo en el servidor
             player.sendMessage(Text.literal("¡Has crafteado " + stack.getName().getString() + "!"), false);
 
@@ -68,9 +68,10 @@ public class EmpanadaItem extends Item {
                             stack.getName().getString()), true)
             );
 
-             */
+
         }
     }
-
+    */
+    
 
 }
