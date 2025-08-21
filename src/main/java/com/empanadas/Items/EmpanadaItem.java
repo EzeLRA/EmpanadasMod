@@ -56,22 +56,13 @@ public class EmpanadaItem extends Item {
 
         if (!world.isClient) {
 
-
-
             // Lógica solo en el servidor
-            player.sendMessage(Text.literal("¡Has crafteado " + stack.getName().getString() + "!"), false);
+            player.sendMessage(Text.literal("¡(1)Has crafteado " + stack.getName().getString() + "!"), false);
 
-            // Registrar en logs del servidor
-            world.getServer().getPlayerManager().getPlayerList().forEach(p ->
-                    p.sendMessage(Text.literal(player.getName().getString() +
-                            " ha crafteado " + stack.getCount() + "x " +
-                            stack.getName().getString()), true)
-            );
 
 
         }
     }
     */
-    
 
 }

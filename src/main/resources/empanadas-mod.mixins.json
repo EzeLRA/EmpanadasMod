@@ -3,6 +3,7 @@
   "package": "com.empanadas.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "CraftingMixingAccesor",
     "ExampleMixin",
     "RecipeMixin"
   ],

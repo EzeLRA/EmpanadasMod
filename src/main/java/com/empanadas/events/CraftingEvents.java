@@ -5,24 +5,31 @@ import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.ActionResult;
+import net.minecraft.world.World;
+
+import java.util.List;
 
 public interface CraftingEvents {
-    Event<CraftingValidator> VALIDATE_CRAFT = EventFactory.createArrayBacked(
-            CraftingValidator.class,
-            callbacks -> stack -> {
-                for (CraftingValidator callback : callbacks) {
-                    if (!callback.validateCraft(stack)) {
-                        return false; // Invalidación inmediata
-                    }
+    Event<CraftingEventos> ON_CRAFT = EventFactory.createArrayBacked(CraftingEventos.class,
+            (listeners) -> (player,stack,ingredients) -> {
+                for(CraftingEventos listener : listeners){
+                    listener.interact(player,stack,ingredients);
+                    //ActionResult result = listener.interact(player,stack,ingredients,recipe);
+                    //if(result != ActionResult.PASS){
+                    //    return result;
+                    //}
                 }
-                return true; // Validación exitosa
+                //return ActionResult.PASS;
             });
 
+    //ActionResult interact(PlayerEntity player, ItemStack stack, List<ItemStack> ingredients, Recipe<?> recipe);
     @FunctionalInterface
-    interface CraftingValidator {
-        boolean validateCraft(ItemStack stack);
+    interface CraftingEventos {
+        void interact(PlayerEntity player, ItemStack stack,
+                             List<ItemStack> ingredients);
     }
 }

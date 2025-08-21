@@ -1,42 +1,61 @@
 package com.empanadas.mixin;
 
 import com.empanadas.Items.EmpanadaItem;
+import com.empanadas.Items.ModItems;
 import com.empanadas.events.CraftingEvents;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.display.RecipeDisplay;
-import net.minecraft.screen.slot.CrafterOutputSlot;
-import net.minecraft.text.Text;
+import net.minecraft.recipe.input.CraftingRecipeInput;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.screen.slot.CraftingResultSlot;
+import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /*
 *   Mixin que detecta que se crafteo una empanada
 */
 
-@Mixin(CrafterOutputSlot.class)
-public class RecipeMixin {
+@Mixin(CraftingResultSlot.class)
+public abstract class RecipeMixin {
 
+    @Unique
+    private List<ItemStack> retornarIngredientes(CraftingRecipeInput craftingRecipeInput){
+        LinkedList<ItemStack> res = new LinkedList<>();
 
-    @Inject(
-            method = "insertStack(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;",
-            at = @At("HEAD"),
-            cancellable = true
-    )
-    private void onItemAttemptInsert(ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
-
-        if (!stack.isEmpty() && stack.getItem() instanceof EmpanadaItem) {
-            boolean isValid = CraftingEvents.VALIDATE_CRAFT.invoker().validateCraft(stack);
-
-            if (!isValid) {
-                cir.setReturnValue(stack); // Cancela la operación
-                cir.cancel();
+        for(int i = 0; i < craftingRecipeInput.size(); ++i) {
+            ItemStack item = craftingRecipeInput.getStackInSlot(i);
+            if(!item.isIn(ItemTags.AXES) && (item.getItem() != ModItems.TAPA_EMPANADA) ){
+                res.add(item.copy());
             }
         }
+
+        return res;
     }
+
+    @Inject(
+            method = "onTakeItem",
+            at = @At("HEAD")
+    )
+    private void afterCraftCompleted(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
+        if(stack.getItem() instanceof EmpanadaItem){
+            CraftingMixingAccesor accessor = (CraftingMixingAccesor) (Object) this;
+            RecipeInputInventory input = accessor.getInput();
+            CraftingRecipeInput.Positioned positioned = input.createPositionedRecipeInput();
+            CraftingRecipeInput craftingRecipeInput = positioned.input();
+
+            List<ItemStack> res = retornarIngredientes(craftingRecipeInput);
+            CraftingEvents.ON_CRAFT.invoker().interact(player,stack,res);
+        }
+    }
+
 }
 
