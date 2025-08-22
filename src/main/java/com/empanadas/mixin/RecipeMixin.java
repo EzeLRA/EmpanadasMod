@@ -6,6 +6,7 @@ import com.empanadas.events.CraftingEvents;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.input.CraftingRecipeInput;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.screen.slot.CraftingResultSlot;
@@ -33,7 +34,7 @@ public abstract class RecipeMixin {
 
         for(int i = 0; i < craftingRecipeInput.size(); ++i) {
             ItemStack item = craftingRecipeInput.getStackInSlot(i);
-            if(!item.isIn(ItemTags.AXES) && (item.getItem() != ModItems.TAPA_EMPANADA) ){
+            if(!item.isIn(ItemTags.AXES) && (item.getItem() != ModItems.TAPA_EMPANADA) && (item.getItem() != Items.AIR)){
                 res.add(item.copy());
             }
         }
