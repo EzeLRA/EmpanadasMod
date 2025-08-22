@@ -7,6 +7,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import java.util.List;
 import java.util.function.UnaryOperator;
 
 public class ModComponents {
@@ -16,6 +17,10 @@ public class ModComponents {
             Identifier.of(EmpanadasMod.MOD_ID, "ingredientes_dispone"),
             ComponentType.<Boolean>builder().codec(Codec.BOOL).build()
     );
+    public static final ComponentType<List<String>> INGREDIENTES_LIST = register("ingredientes-list",
+            builder -> builder.codec(Codec.STRING.listOf()));
+
+
     private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator){
         return Registry.register(Registries.DATA_COMPONENT_TYPE,Identifier.of(EmpanadasMod.MOD_ID,name),builderOperator.apply(ComponentType.builder()).build());
     }

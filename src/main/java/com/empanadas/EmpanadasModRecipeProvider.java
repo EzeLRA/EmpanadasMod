@@ -5,19 +5,24 @@ import java.util.concurrent.CompletableFuture;
 
 import com.empanadas.Items.ModItems;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.fabricmc.fabric.impl.item.RecipeRemainderHandler;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
+import net.minecraft.data.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.registry.tag.ItemTags;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.util.Identifier;
+
+import static net.minecraft.recipe.Ingredient.*;
 
 public class EmpanadasModRecipeProvider extends FabricRecipeProvider {
     public EmpanadasModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
@@ -36,11 +41,20 @@ public class EmpanadasModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.WHEAT),conditionsFromItem(Items.WHEAT))
                         .criterion(hasItem(Items.POTION),conditionsFromItem(Items.POTION))
                         .offerTo(exporter);
+
                 //Recetas para Empanada cruda
-                createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA).input(ModItems.TAPA_EMPANADA).input(ItemTags.AXES).input(EmpanadasModItemTagProvider.COMESTIBLES).input(ConventionalItemTags.VEGETABLE_FOODS)
+                createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA)
+                        .input(ModItems.TAPA_EMPANADA)
+                        .input(ItemTags.AXES)
+                        .input(EmpanadasModItemTagProvider.COMESTIBLES)
+                        .input(ConventionalItemTags.VEGETABLE_FOODS)
                         .criterion(hasItem(ModItems.TAPA_EMPANADA),conditionsFromItem(ModItems.TAPA_EMPANADA))
                         .offerTo(exporter,"empanada_cruda_compuesta1");
-                createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA).input(ModItems.TAPA_EMPANADA).input(ItemTags.AXES).input(ConventionalItemTags.VEGETABLE_FOODS)
+
+                createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA)
+                        .input(ModItems.TAPA_EMPANADA)
+                        .input(ItemTags.AXES)
+                        .input(ConventionalItemTags.VEGETABLE_FOODS)
                         .criterion(hasItem(ModItems.TAPA_EMPANADA),conditionsFromItem(ModItems.TAPA_EMPANADA))
                         .offerTo(exporter,"empanada_cruda_compuesta2");
                 createShapeless(RecipeCategory.FOOD, ModItems.EMPANADA_CRUDA).input(ModItems.TAPA_EMPANADA)
