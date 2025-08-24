@@ -26,7 +26,6 @@ public interface CraftingEvents {
                 //return ActionResult.PASS;
             });
 
-    //ActionResult interact(PlayerEntity player, ItemStack stack, List<ItemStack> ingredients, Recipe<?> recipe);
     @FunctionalInterface
     interface CraftingEventos {
         void interact(PlayerEntity player, ItemStack stack,

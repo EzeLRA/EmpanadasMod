@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "CraftingMixingAccesor",
+    "NoConsumeMixin",
     "RecipeMixin"
   ],
   "injectors": {
